@@ -9,12 +9,12 @@
 import UIKit
 
 class Goods: NSObject {
-    var name :String 
+    var name :String!
     var number:int_fast8_t
     var type : int_fast8_t
-    var create_time : String
-    var update_time : String
-    var expiration_time : String
+    var create_time : String!
+    var update_time : String!
+    var expiration_time : String!
     override init()
     {
         name = ""

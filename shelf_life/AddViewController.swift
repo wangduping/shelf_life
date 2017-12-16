@@ -29,16 +29,15 @@ class AddViewController: UIViewController {
         segment.addTarget(self, action:  #selector(AddViewController.segmentDidchange(_:)),for: .valueChanged)
         //用lable button tableview来实现下拉框
         goods_type_table.isHidden = true
-        DBManager.shared.findType()
+        let tp_array = DBManager.shared.findType()
+        print(tp_array[0].id)
+        print(tp_array[0].name)
         
-        
-        
-        
-   
     }
     
     @IBAction func show_type(_ sender: Any) {
-        
+        goods_type_table.isHidden = false
+                                       
     }
     
     

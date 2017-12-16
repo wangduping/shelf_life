@@ -27,6 +27,8 @@
 		B95058541FDA7FD1000A8969 /* Goods.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95058531FDA7FD1000A8969 /* Goods.swift */; };
 		B95058571FDE1B66000A8969 /* jiantou.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B95058561FDE1B66000A8969 /* jiantou.jpg */; };
 		B95058591FDE25F6000A8969 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95058581FDE25F6000A8969 /* Types.swift */; };
+		B9BC4C861FE1283C00DD1210 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BC4C851FE1283C00DD1210 /* Group.swift */; };
+		B9BC4C8B1FE12ED000DD1210 /* Group_listViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BC4C8A1FE12ED000DD1210 /* Group_listViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +82,8 @@
 		B95058531FDA7FD1000A8969 /* Goods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goods.swift; sourceTree = "<group>"; };
 		B95058561FDE1B66000A8969 /* jiantou.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = jiantou.jpg; sourceTree = "<group>"; };
 		B95058581FDE25F6000A8969 /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
+		B9BC4C851FE1283C00DD1210 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		B9BC4C8A1FE12ED000DD1210 /* Group_listViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group_listViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,12 +135,11 @@
 		B95057E81FD83FD8000A8969 /* shelf_life */ = {
 			isa = PBXGroup;
 			children = (
+				B9BC4C871FE12C9C00DD1210 /* NSObject */,
 				B95058551FDE1B1A000A8969 /* img */,
 				B950584E1FDA3967000A8969 /* DataBase */,
 				B950583F1FD8464E000A8969 /* FMDB */,
 				B95057E91FD83FD8000A8969 /* AppDelegate.swift */,
-				B95058531FDA7FD1000A8969 /* Goods.swift */,
-				B95058581FDE25F6000A8969 /* Types.swift */,
 				B95057ED1FD83FD8000A8969 /* Main.storyboard */,
 				B95058441FD91657000A8969 /* AddViewController.swift */,
 				B95057F31FD83FD8000A8969 /* Assets.xcassets */,
@@ -145,6 +148,7 @@
 				B95057F81FD83FD8000A8969 /* Info.plist */,
 				B95057F01FD83FD8000A8969 /* shelf_life.xcdatamodeld */,
 				B950583D1FD84177000A8969 /* DBManager.swift */,
+				B9BC4C8A1FE12ED000DD1210 /* Group_listViewController.swift */,
 			);
 			path = shelf_life;
 			sourceTree = "<group>";
@@ -200,6 +204,16 @@
 				B95058561FDE1B66000A8969 /* jiantou.jpg */,
 			);
 			path = img;
+			sourceTree = "<group>";
+		};
+		B9BC4C871FE12C9C00DD1210 /* NSObject */ = {
+			isa = PBXGroup;
+			children = (
+				B95058531FDA7FD1000A8969 /* Goods.swift */,
+				B95058581FDE25F6000A8969 /* Types.swift */,
+				B9BC4C851FE1283C00DD1210 /* Group.swift */,
+			);
+			path = NSObject;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -346,11 +360,13 @@
 				B95058591FDE25F6000A8969 /* Types.swift in Sources */,
 				B95058361FD84046000A8969 /* FMDatabasePool.m in Sources */,
 				B95058541FDA7FD1000A8969 /* Goods.swift in Sources */,
+				B9BC4C861FE1283C00DD1210 /* Group.swift in Sources */,
 				B95058431FD90FE9000A8969 /* ViewController.swift in Sources */,
 				B950583E1FD84177000A8969 /* DBManager.swift in Sources */,
 				B95057F21FD83FD8000A8969 /* shelf_life.xcdatamodeld in Sources */,
 				B95057EA1FD83FD8000A8969 /* AppDelegate.swift in Sources */,
 				B95058381FD84046000A8969 /* FMResultSet.m in Sources */,
+				B9BC4C8B1FE12ED000DD1210 /* Group_listViewController.swift in Sources */,
 				B95058371FD84046000A8969 /* FMDatabaseAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

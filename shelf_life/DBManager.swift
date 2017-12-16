@@ -159,8 +159,8 @@ class DBManager: NSObject {
         return result
     }
     
-    func findType () {
-        var tp :[Types]
+    func findType () -> [Types] {
+        var tp_array = [Types]()
         database = FMDatabase(path:pathToDatabase)
         if (database != nil)
         {
@@ -168,20 +168,12 @@ class DBManager: NSObject {
             do{
                 if openDatabase(){
                     let results = try database.executeQuery(query, values: nil)
-                    var i = 0
                     while results.next(){
-                        tp[i].id = int_fast8_t(results.int(forColumn: "id"));
-                        tp[i].name = String(describing: results.string(forColumn: "name"))
-                        i += 1
-                        print(1)
-                        print(String(describing: results.string(forColumn: "name")))
-                        print(int_fast8_t(results.int(forColumn: "id")))
-                        print(2)
-//                         tp = Types(id:results.int(forColumn: id),
-//                                       name:results.string(forColumn: uname))
-               
+                        let tp = Types()
+                        tp.id = int_fast8_t(results.int(forColumn: "id"))
+                        tp.name = results.string(forColumn: "name")!
+                        tp_array.append(tp)
                     }
-                 
                 }
                 else{
                     print("can not open database")
@@ -194,7 +186,49 @@ class DBManager: NSObject {
         else{
             print("can not find database")
         }
-        
+        return tp_array
+    }
+    func LoadGroups () -> [Groups] {
+        var group_array = [Groups]()
+        database = FMDatabase(path:pathToDatabase)
+        if (database != nil)
+        {
+            var query = "select id,name from tb_goods_type;"
+            do{
+                if openDatabase(){
+                    let results = try database.executeQuery(query, values: nil)
+                    while results.next(){
+                        let gr = Groups()
+                        gr.group_id = int_fast8_t(results.int(forColumn: "id"))
+                        gr.group_name = results.string(forColumn: "name")!
+                        query = "select * from tb_goods where type = \(gr.group_id)"
+                        let goods = try database.executeQuery(query, values: nil)
+                        while goods.next(){
+                            print(goods)
+                            let god = Goods()
+                            god.name = goods.string(forColumn: "name")!
+                            god.type = int_fast8_t(goods.int(forColumn: "type"))
+                            god.number = int_fast8_t(goods.int(forColumn: "number"))
+                            god.create_time = goods.string(forColumn: "create_time")!
+                            god.expiration_time = goods.string(forColumn: "expiration_time")!
+                            god.update_time = goods.string(forColumn: "update_time")!
+                            gr.tp_array.append(god)
+                        }
+                        group_array.append(gr)
+                    }
+                }
+                else{
+                    print("can not open database")
+                }
+            }
+            catch  {
+                print(Error.self)
+            }
+        }
+        else{
+            print("can not find database")
+        }
+        return group_array
     }
     
 }
