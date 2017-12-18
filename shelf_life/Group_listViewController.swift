@@ -24,30 +24,29 @@ class Group_listViewController: UIViewController,UITableViewDataSource,UITableVi
     func numberOfSections(in tableView: UITableView) -> Int {
         return group_list.count
     }
-    private func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> String? {
-        return adHeaders[section]
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int)
+        -> String? {
+            let data = allgoods[section]!
+            print (data!.count)
+            return "\(adHeaders[section]!)\t共\(data!.count)个物品"
     }
-    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        return "\(String(describing: allgoods[section]??.count))个物品"
-    }
+
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let secno = indexPath.section
-        var data = allgoods[secno]
-        let identify:String = (data!?[indexPath.row])!
+        let identify:String = "SwiftCell"
         //同一形式的单元格重复使用，在声明时已注册，
         let cell = tableView.dequeueReusableCell(
             withIdentifier: identify, for: indexPath)
+        let secno = indexPath.section
+        var data = allgoods[secno]
         cell.accessoryType = .disclosureIndicator
-        
         cell.textLabel?.text = data!?[indexPath.row]
-
         return cell
     }
-    // UITableViewDelegate 方法，处理列表项的选中事件
+
 //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        
-//        tableView.deselectRow(at: indexPath, animated: true)
+//
+//        self.tableView!.deselectRow(at: indexPath, animated: true)
 //        let itemString = self.allgoods[indexPath.section]!![indexPath.row]
 //        let alertController = UIAlertController(title: "提示!",
 //                                                message: "你选中了【\(itemString)】",
@@ -61,7 +60,7 @@ class Group_listViewController: UIViewController,UITableViewDataSource,UITableVi
         super.viewDidLoad()
         var i = 0
         for group in group_list{
-            adHeaders.append("\(group.group_name)")
+            adHeaders.append("\(group.group_name!)")
             var temp = [String!]()
             for goods in group.tp_array{
                 temp.append("\(goods.name!)\t\(goods.number)")
@@ -78,19 +77,6 @@ class Group_listViewController: UIViewController,UITableViewDataSource,UITableVi
         tableView.register(UITableViewCell.self,
                                  forCellReuseIdentifier: "SwiftCell")
         self.view.addSubview(tableView)
-        
-        //创建表头标签
-        let headerLabel = UILabel(frame: CGRect(x:0, y:0,
-                                                width:self.view.bounds.size.width, height:30))
-        headerLabel.backgroundColor = UIColor.black
-        headerLabel.textColor = UIColor.white
-        headerLabel.numberOfLines = 0
-        headerLabel.lineBreakMode = .byWordWrapping
-        headerLabel.text = "高级 UIKit 控件"
-        headerLabel.font = UIFont.italicSystemFont(ofSize: 20)
-        tableView.tableHeaderView = headerLabel
-        
-
     }
 
     override func didReceiveMemoryWarning() {

@@ -17,26 +17,33 @@ class AddViewController: UIViewController {
     //数据库插入所需要的数据
     @IBOutlet weak var goods: UITextField!
     @IBOutlet weak var number: UITextField!
-    @IBOutlet weak var type: UITextField!
     @IBOutlet weak var goods_type: UITextField!
     
+    let tp_array = DBManager.shared.findType()
+    
     //类型下拉列表的展示
-    @IBOutlet weak var goods_type_table: UITableView!
     @IBOutlet weak var goods_type_button: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         segment.addTarget(self, action:  #selector(AddViewController.segmentDidchange(_:)),for: .valueChanged)
-        //用lable button tableview来实现下拉框
-        goods_type_table.isHidden = true
-        let tp_array = DBManager.shared.findType()
+
         print(tp_array[0].id)
         print(tp_array[0].name)
         
     }
     
     @IBAction func show_type(_ sender: Any) {
-        goods_type_table.isHidden = false
+        let alertController = UIAlertController(title: "场所/类别", message: "请选择该物品的所属场所/类别",              preferredStyle: .actionSheet)
+        print(tp_array[0].id)
+        print(goods_type.text!)
+        for tp in tp_array {
+            alertController.addAction(UIAlertAction(title: "\(tp.name!)", style: .default, handler: { (UIAlertAction) in
+                self.goods_type.text = tp.name
+            }))
+        }
+        alertController.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
                                        
     }
     

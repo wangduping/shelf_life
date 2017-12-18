@@ -12,6 +12,7 @@
         <!--item 2-->
         <scene sceneID="7pX-V6-pdW">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E2u-7S-X3v" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController title="item 2" id="1Jx-Sj-nuR" customClass="Group_listViewController" customModule="shelf_life" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="awk-R2-eJR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -22,7 +23,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="todo_list" id="NEo-nZ-Q6b">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SwiftCell" id="NEo-nZ-Q6b">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NEo-nZ-Q6b" id="oGr-mj-fnk">
@@ -41,7 +42,6 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="分组" id="QyZ-Sl-2og"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="E2u-7S-X3v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-357.5" y="-90.5"/>
         </scene>
@@ -131,39 +131,35 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="goods_type_textFild" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="G8S-kS-dT5">
-                                <rect key="frame" x="139" y="238" width="157" height="30"/>
+                            <textField opaque="NO" alpha="0.94999999999999996" contentMode="scaleToFill" misplaced="YES" enabled="NO" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="冷藏室" borderStyle="roundedRect" minimumFontSize="17" id="pgb-Py-hlQ">
+                                <rect key="frame" x="139" y="238" width="150" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <fontDescription key="fontDescription" name=".PingFangSC-Regular" family=".PingFang SC" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" spellCheckingType="no" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                <connections>
+                                    <action selector="show_type:" destination="Pn9-OD-J0S" eventType="editingDidEnd" id="hWi-lJ-SSK"/>
+                                </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="mlH-Ew-nQ7">
-                                <rect key="frame" x="266" y="243" width="23" height="21"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="mlH-Ew-nQ7">
+                                <rect key="frame" x="259" y="243" width="23" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="jiantou.jpg"/>
                                 <connections>
                                     <action selector="show_type:" destination="Pn9-OD-J0S" eventType="touchUpInside" id="XhD-ZV-ubK"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="3MV-1N-eTo">
-                                <rect key="frame" x="145" y="243" width="113" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="录入" id="NTQ-gQ-NBD"/>
                     <connections>
                         <outlet property="goods" destination="UZs-0n-NiR" id="fPs-Cj-0qs"/>
-                        <outlet property="goods_type" destination="G8S-kS-dT5" id="38S-r6-P1E"/>
+                        <outlet property="goods_type" destination="pgb-Py-hlQ" id="UKP-rl-s4Q"/>
                         <outlet property="goods_type_button" destination="mlH-Ew-nQ7" id="Ids-N9-ElP"/>
-                        <outlet property="goods_type_table" destination="3MV-1N-eTo" id="J2g-Z6-tYz"/>
                         <outlet property="number" destination="P4N-vz-wWS" id="c2U-Un-rup"/>
                         <outlet property="segment" destination="Itd-6f-Rmw" id="zFR-y0-dHZ"/>
                         <outlet property="time_picker" destination="KBJ-ZN-4x6" id="59b-4n-Is5"/>
-                        <outlet property="type" destination="G8S-kS-dT5" id="bps-8V-yo8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="doL-Dl-GNN" userLabel="First Responder" sceneMemberID="firstResponder"/>
